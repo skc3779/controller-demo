@@ -42,3 +42,7 @@ base-package 밑의 모든 controller의 메소드들을 자동으로 RequestMap
 
 http://localhost:8080/controller/twowelcome/one.do
 http://localhost:8080/controller/twowelcome/two.do
+
+
+## Annotation-drive 매핑방법 3번
+
