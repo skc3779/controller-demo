@@ -1,4 +1,4 @@
-package comm.data;
+package comm.aspect;
 
 /**
  * Created by skc37_000 on 2015-08-07.
@@ -6,6 +6,8 @@ package comm.data;
 
 import java.lang.reflect.Method;
 
+import comm.data.ResultData;
+import comm.except.BusinessException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,21 +15,16 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import common.data.ResultData;
-import common.exception.BusinessException;
-import common.security.SecurityFilter;
-
+@Component
 @Aspect
 public class RestControllerAdvisor {
     private static final Logger log = LoggerFactory.getLogger(RestControllerAdvisor.class);
 
-    //@Pointcut(value = "@annotation(org.springframework.web.bind.annotation.ResponseBody)")
-    @Pointcut(value = "execution(* business..*Controller.json*(..))")
+    @Pointcut(value = "@annotation(org.springframework.web.bind.annotation.ResponseBody)")
+    //@Pointcut(value = "execution(* business..*Controller.json*(..))")
     private void restController() {
         //NOTE : pointcut : @RestController
         log.info("RestControllerAdvisor....");

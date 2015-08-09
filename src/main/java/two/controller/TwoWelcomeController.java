@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
@@ -51,6 +52,7 @@ public class TwoWelcomeController extends MultiActionController  {
 	}
 
 	@RequestMapping
+	@ResponseBody
 	public ModelAndView jsonOut(HttpServletRequest request,
 							 HttpServletResponse response) throws Exception {
 
@@ -59,7 +61,6 @@ public class TwoWelcomeController extends MultiActionController  {
 		Map < String, Object > map = new HashMap<>();
 
 		map.put("ok", true);
-		map.put("data", "");
 		map.put("data", "success!!");
 		return new ModelAndView("", map);
 	}

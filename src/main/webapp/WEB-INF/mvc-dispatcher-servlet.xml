@@ -26,7 +26,6 @@
 -->
 
 	<!-- two.controller Controller Class Name handlerMapping -->
-<!--
 
 	<context:component-scan base-package="two" resource-pattern="**/*.class">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
@@ -36,10 +35,10 @@
 		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
 		<property name="caseSensitive" value="false" />
 		<property name="basePackage" value="two" />
-		&lt;!&ndash; <property name="pathPrefix" value="/two" /> &ndash;&gt;
+		<!-- <property name="pathPrefix" value="/two" /> -->
 	</bean>
 
-	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingm ViewResolver">
 		<property name="mediaTypes">
 			<map>
 				<entry key="do" value="text/html" />
@@ -55,13 +54,14 @@
 			</list>
 		</property>
 	</bean>
--->
 
 	<!-- three.controller Controller Class Name handlerMapping -->
-	<context:component-scan base-package="three" />
+<!--	<context:component-scan base-package="three" />
+	&lt;!&ndash;<context:component-scan base-package="comm.aspect" />&ndash;&gt;
 	<mvc:annotation-driven />
-	<mvc:default-servlet-handler />
-    <!--<aop:aspectj-autoproxy />-->
+	<mvc:default-servlet-handler />-->
+	<context:component-scan base-package="comm.aspect" />
+    <aop:aspectj-autoproxy proxy-target-class="true" />
 <!--	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters"> 
 			<list> 
